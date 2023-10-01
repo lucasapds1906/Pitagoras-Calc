@@ -1,0 +1,7 @@
+.hover-btn {
+    transition:  .2s ease-in;
+}
+
+.hover-btn:hover {
+    filter: brightness(0.6);
+}
