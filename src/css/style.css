@@ -5,3 +5,11 @@
 .hover-btn:hover {
     filter: brightness(0.6);
 }
+
+.hover-card {
+    transition: border 0.2s ease;
+}
+
+.hover-card:hover {
+    border: 1px solid aqua;
+}

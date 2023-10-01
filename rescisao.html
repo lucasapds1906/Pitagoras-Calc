@@ -54,46 +54,93 @@
     <div class="container mt-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-
-                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Calculadora de Rescisão</li>
             </ol>
         </nav>
     </div>
 
     <main class="container">
-
+        <!-- PRINCIPAL -->
         <section>
+            <h2 class="text-uppercase fs-1 fw-bold ">Calculadora de Rescisão</h2>
+            <h3 class="text-center my-4 w-75 mx-auto">A rescisão de contrato CLT é a formalização do término de um vínculo empregatício regido por esse modelo de trabalho.</h3>
 
-            <h2 class="fs-1 fw-bold text-center mb-4">Bem-vindo ao Website Pitágoras Calc!</h2>
-            <div class="fs-5">
-                <p>Este site foi cuidadosamente desenvolvido como parte de uma atividade avaliativa sob a orientação do
-                    professor Helder Cavalcante, como parte do curso de Análise e Desenvolvimento de Sistemas na
-                    Universidade Pitágoras Unopar Anhanguera.</p>
+            <!-- CALCULADORA -->
+            <div class="row mx-0">
+                <div class="col-lg-6 col-12 border border-1 border-dark rounded-3 p-3 mx-auto">
+                    <h4 class="fs-4 text-center fw-semibold mb-1">Cálculo de férias</h4>
+                    <p class="mb-3 text-center text-black-50">(Valores equivalentes para 30 dias de férias)</p>
 
-                <p>Nosso objetivo é fornecer a você uma ferramenta eficaz para calcular seu salário líquido e rescisão
-                    de
-                    férias de forma simples e precisa. Com a ajuda das linguagens de programação que aprendemos neste
-                    curso,
-                    criamos uma plataforma que facilitará seus cálculos financeiros.</p>
+                    <!-- INPUTS -->
+                    <div class="input-group mb-2">
+                        <span class="fw-semibold input-group-text text-bg-dark" id="inputGroup-sizing-default">Salário
+                            Bruto</span>
+                        <input placeholder="R$ 0,00" type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" id="salario-bruto_input">
+                    </div>
 
-                <p>Navegue pelo site para acessar as diferentes calculadoras disponíveis e descubra como podemos
-                    simplificar
-                    seus processos de cálculo. Este projeto representa nosso comprometimento com a excelência acadêmica
-                    e a
-                    aplicação prática dos conhecimentos adquiridos.</p>
+                    <!-- BOTÕES -->
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <button id="btnLimpar" class="btn btn-light border-info rounded-4 "
+                            type="button">Limpar</button>
+                        <button id="btnCalcular" class="btn btn-dark rounded-4" type="button">Calcular</button>
+                    </div>
 
-                <p>Fique à vontade para explorar todas as funcionalidades do site. Agradecemos por visitar nosso projeto
-                    e esperamos que ele seja útil para você!
-                </p>
-            </div>
+                    <!-- DIVISOR -->
+                    <hr id="divisor" class="my-4 border border-info border-2 opacity-75 d-none">
 
-            <span class="fs-4 fw-bold text-center">Tecnologias Utilizadas</span>
-            <ul class="fs-5">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>BOOTSTRAP 5</li>
-                <li>JAVASCRIPT</li>
-            </ul>
+                    <!-- TABELA -->
+                    <div id="tabela" class="d-none overflow-x-auto">
+                        <h4 class="fs-4 fw-semibold mb-3">Resultado</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Eventos</th>
+                                    <th scope="col">Alíquota</th>
+                                    <th scope="col">Proventos</th>
+                                    <th scope="col">Descontos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Salário bruto</td>
+                                    <td></td>
+                                    <td id="proventos_salario-bruto_tabela">-</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>1/3 Férias</td>
+                                    <td></td>
+                                    <td id="proventos_ferias_tabela"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>INSS</td>
+                                    <td id="aliquota_inss_tabela">-</td>
+                                    <td></td>
+                                    <td id="descontos_inss_tabela">-</td>
+                                </tr>
+                                <tr>
+                                    <td>IRRF</td>
+                                    <td id="aliquota_irrf_tabela">-</td>
+                                    <td></td>
+                                    <td id="descontos_irrf-tabela">-</td>
+                                </tr>
+                                <tr>
+                                    <td>Totais</td>
+                                    <td>-</td>
+                                    <td id="proventos_totais_tabela">-</td>
+                                    <td id="descontos_totais_tabela"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Valor salário líquido</td>
+                                    <td id="salario-liquido_tabela" colspan="2">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </section>
 
         <!-- CARDS -->
@@ -167,6 +214,7 @@
         </section>
     </main>
 
+    <!-- RODAPE -->
     <footer class="bg-dark text-light">
         <div class="container py-4 d-flex flex-column align-items-center gap-3">
             <div class="d-flex gap-3 items-center">
@@ -183,6 +231,8 @@
             <p class="text-center text-white-50">Desenvolvido por <i class="bi bi-c-circle"></i> Lucas</p>
         </div>
     </footer>
+
+    <script src="src/js/ferias.js"></script>
 </body>
 
 </html>

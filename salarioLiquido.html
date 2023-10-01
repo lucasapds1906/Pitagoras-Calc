@@ -37,10 +37,10 @@
               <a class="nav-link fs-5 fw-semibold" href="salarioLiquido.html">Calculadora de Salário Líquido</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5 fw-semibold" href="ferias">Calculadora de Férias</a>
+              <a class="nav-link fs-5 fw-semibold" href="ferias.html">Calculadora de Férias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5 fw-semibold" href="rescisao">Calculadora de Rescisão</a>
+              <a class="nav-link fs-5 fw-semibold" href="rescisao.html">Calculadora de Rescisão</a>
             </li>
           </ul>
         </div>
@@ -57,166 +57,181 @@
       </ol>
     </nav>
   </div>
-  
+
   <main class="container">
-  <!-- PRINCIPAL -->
-  <section>
-    <h2 class="text-uppercase fs-1 fw-bold ">Calculadora de salário líquido</h2>
-    <h3 class="text-center my-4 w-75 mx-auto">Este cálculo demostra como obter um valor de salário líquido a partir
-      do salário bruto e dos principais
-      descontos do salário (INSS e IRRF)</h3>
+    <!-- PRINCIPAL -->
+    <section>
+      <h2 class="text-uppercase fs-1 fw-bold ">Calculadora de salário líquido</h2>
+      <h3 class="text-center my-4 w-75 mx-auto">Este cálculo demostra como obter um valor de salário líquido a partir
+        do salário bruto e dos principais
+        descontos do salário (INSS e IRRF)</h3>
 
-    <!-- CALCULADORA -->
-    <div class="row mx-0">
-      <div class="col-lg-6 col-12 border border-1 border-dark rounded-3 p-3 mx-auto">
-        <h4 class="fs-4 text-center fw-semibold mb-3">Cálculo de salário líquido</h4>
+      <!-- CALCULADORA -->
+      <div class="row mx-0">
+        <div class="col-lg-6 col-12 border border-1 border-dark rounded-3 p-3 mx-auto">
+          <h4 class="fs-4 text-center fw-semibold mb-3">Cálculo de salário líquido</h4>
 
-        <!-- INPUTS -->
-        <div class="">
-          <div class="input-group mb-2">
-            <span class="fw-semibold input-group-text text-bg-dark" id="inputGroup-sizing-default">Salário Bruto</span>
-            <input placeholder="R$ 0,00" type="text" class="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default" id="salario-bruto_input">
+          <!-- INPUTS -->
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-2">
+                  <span class="fw-semibold input-group-text text-bg-dark" id="inputGroup-sizing-default">Salário
+                    Bruto</span>
+                  <input placeholder="R$ 0,00" type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="salario-bruto_input">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="input-group">
+                  <span class="input-group-text text-bg-dark fw-semibold"
+                    id="inputGroup-sizing-default">Dependentes</span>
+                  <input id="dependetes_input" placeholder="0" min='0' type="number" class="form-control"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+              </div>
+              
+            <!-- BOTÕES -->
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button id="btnLimpar" class="btn btn-light border-info rounded-4 " type="button">Limpar</button>
+              <button id="btnCalcular" class="btn btn-dark rounded-4" type="button">Calcular</button>
+            </div>
           </div>
 
-          <div class="input-group">
-            <span class="input-group-text text-bg-dark fw-semibold" id="inputGroup-sizing-default">Dependentes</span>
-            <input id="dependetes_input" placeholder="0" min='0' type="number" class="form-control"
-              aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
 
-          <!-- BOTÕES -->
-          <div class="d-flex justify-content-center gap-3 mt-4">
-            <button id="btnLimpar" class="btn btn-light border-info rounded-4 " type="button">Limpar</button>
-            <button id="btnCalcular" class="btn btn-dark rounded-4" type="button">Calcular</button>
+          <!-- DIVISOR -->
+          <hr id="divisor" class="my-4 border border-info border-2 opacity-75 d-none">
+
+          <!-- TABELA -->
+          <div id="tabela" class="d-none overflow-x-auto">
+            <h4 class="fs-4 fw-semibold mb-3">Resultado</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Eventos</th>
+                  <th scope="col">Alíquota</th>
+                  <th scope="col">Proventos</th>
+                  <th scope="col">Descontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Salário bruto</td>
+                  <td></td>
+                  <td id="proventos_salario-bruto_tabela">-</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>INSS</td>
+                  <td id="aliquota_inss_tabela">-</td>
+                  <td></td>
+                  <td id="descontos_inss_tabela">-</td>
+                </tr>
+                <tr>
+                  <td>IRRF</td>
+                  <td id="aliquota_irrf_tabela">-</td>
+                  <td></td>
+                  <td id="descontos_irrf-tabela">-</td>
+                </tr>
+                <tr>
+                  <td>Totais</td>
+                  <td>-</td>
+                  <td id="proventos_totais_tabela">-</td>
+                  <td id="descontos_totais_tabela"></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Valor salário líquido</td>
+                  <td id="salario-liquido_tabela" colspan="2">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="my-5">
+      <h2 class="mb-3 fs-1 fw-bold text-uppercase">Veja também</h2>
+
+      <div class="row mx-0 gap-lg-0 gap-2">
+        <!-- CARD 1 -->
+        <div class="col-lg-4 col-12 p-1">
+          <div class="card d-flex h-100 hover-card">
+            <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-OptimusTech/">
+              <img
+                src="https://github.com/lucasapds1906/7DaysOfCode-OptimusTech/blob/main/img/readme/desktop.png?raw=true"
+                class="card-img-top" alt="">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">7DaysOfCode - OptimusTech</h5>
+              <p class="card-text">Projeto desenvolvido em HTML e CSS, no qual foi construída a
+                OptimusTech, uma página de
+                vagas de TI fictícia.</p>
+            </div>
+            <div class="card-footer border-0 bg-white">
+              <a href="https://github.com/lucasapds1906/7DaysOfCode-OptimusTech" class=" btn btn-info fw-semibold"
+                target="_blank">Explorar Projeto</a>
+            </div>
           </div>
         </div>
 
-        <!-- DIVISOR -->
-        <hr class="my-4 border border-info border-2 opacity-75">
+        <!-- CARD 2 -->
+        <div class="col-lg-4 col-12 p-1">
+          <div class="card d-flex h-100 hover-card">
+            <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-Aluramed/">
+              <img src="src/img/desktop.png" class="card-img-top" alt="">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">7DaysOfCode - Aluramed</h5>
+              <p class="card-text">Neste projeto do "7DaysOfCode: Responsividade" da Alura, desenvolvemos
+                uma página
+                fictícia para a clínica médica AluraMed. O principal objetivo deste desafio foi criar um
+                projeto com foco
+                na metodologia Mobile First, garantindo que a página seja responsiva e se adapte bem à
+                maioria das telas.
+              </p>
+            </div>
+            <div class="card-footer border-0 bg-white">
+              <a href="https://github.com/lucasapds1906/7DaysOfCode-Aluramed" class="btn btn-info fw-semibold"
+                target="_blank">Explorar Projeto</a>
+            </div>
+          </div>
+        </div>
 
-        <!-- TABELA -->
-        <div id="tabela" class="d-none overflow-x-auto">
-          <h4 class="fs-4 fw-semibold mb-3">Resultado</h4>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Eventos</th>
-                <th scope="col">Alíquota</th>
-                <th scope="col">Proventos</th>
-                <th scope="col">Descontos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Salário bruto</td>
-                <td></td>
-                <td id="proventos_salario-bruto_tabela">-</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>INSS</td>
-                <td id="aliquota_inss_tabela">-</td>
-                <td></td>
-                <td id="descontos_inss_tabela">-</td>
-              </tr>
-              <tr>
-                <td>IRRF</td>
-                <td id="aliquota_irrf_tabela">-</td>
-                <td></td>
-                <td id="descontos_irrf-tabela">-</td>
-              </tr>
-              <tr>
-                <td>Totais</td>
-                <td>-</td>
-                <td id="proventos_totais_tabela">-</td>
-                <td id="descontos_totais_tabela"></td>
-              </tr>
-              <tr>
-                <td colspan="2">Valor salário líquido</td>
-                <td id="salario-liquido_tabela" colspan="2">-</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- CARD 3 -->
+        <div class="col-lg-4 col-12 p-1">
+          <div class="card d-flex h-100 hover-card">
+            <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-Netflix/">
+              <img
+                src="https://github.com/lucasapds1906/7DaysOfCode-Netflix/blob/main/imagensReadme/layout-desktop.png?raw=true"
+                class="card-img-top" alt="">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">7DaysOfCode - Netflix</h5>
+              <p class="card-text">Projeto desenvolvido em HTML e CSS, no qual foi construída uma réplica
+                da estrutura
+                visual do site de streaming Netflix.</p>
+            </div>
+            <div class="card-footer border-0 bg-white">
+              <a href="https://github.com/lucasapds1906/7DaysOfCode-Netflix" class="btn btn-info fw-semibold "
+                target="_blank">Explorar Projeto</a>
+            </div>
+          </div>
         </div>
       </div>
-  </section>
-
-  <!-- CARDS -->
-  <section class="my-5">
-    <h2 class="mb-3 fs-1 fw-bold text-uppercase">Veja também</h2>
-
-    <div class="row mx-0 gap-lg-0 gap-2">
-      <!-- CARD 1 -->
-      <div class="col-lg-4 col-12 p-1">
-        <div class="card d-flex h-100">
-          <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-OptimusTech/">
-            <img
-              src="https://github.com/lucasapds1906/7DaysOfCode-OptimusTech/blob/main/img/readme/desktop.png?raw=true"
-              class="card-img-top" alt="">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">7DaysOfCode - OptimusTech</h5>
-            <p class="card-text">Projeto desenvolvido em HTML e CSS, no qual foi construída a OptimusTech, uma página de
-              vagas de TI fictícia.</p>
-          </div>
-          <div class="card-footer border-0 bg-white">
-            <a href="https://github.com/lucasapds1906/7DaysOfCode-OptimusTech" class=" btn btn-info fw-semibold"
-              target="_blank">Explorar Projeto</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="col-lg-4 col-12 p-1">
-        <div class="card d-flex h-100">
-          <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-Aluramed/">
-            <img src="src/img/desktop.png" class="card-img-top" alt="">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">7DaysOfCode - Aluramed</h5>
-            <p class="card-text">Neste projeto do "7DaysOfCode: Responsividade" da Alura, desenvolvemos uma página
-              fictícia para a clínica médica AluraMed. O principal objetivo deste desafio foi criar um projeto com foco
-              na metodologia Mobile First, garantindo que a página seja responsiva e se adapte bem à maioria das telas.
-            </p>
-          </div>
-          <div class="card-footer border-0 bg-white">
-            <a href="https://github.com/lucasapds1906/7DaysOfCode-Aluramed" class="btn btn-info fw-semibold"
-              target="_blank">Explorar Projeto</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="col-lg-4 col-12 p-1">
-        <div class="card d-flex h-100">
-          <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-Netflix/">
-            <img
-              src="https://github.com/lucasapds1906/7DaysOfCode-Netflix/blob/main/imagensReadme/layout-desktop.png?raw=true"
-              class="card-img-top" alt="">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">7DaysOfCode - Netflix</h5>
-            <p class="card-text">Projeto desenvolvido em HTML e CSS, no qual foi construída uma réplica da estrutura
-              visual do site de streaming Netflix.</p>
-          </div>
-          <div class="card-footer border-0 bg-white">
-            <a href="https://github.com/lucasapds1906/7DaysOfCode-Netflix" class="btn btn-info fw-semibold "
-              target="_blank">Explorar Projeto</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
   <!-- RODAPE -->
   <footer class="bg-dark text-light">
     <div class="container py-4 d-flex flex-column align-items-center gap-3">
       <div class="d-flex gap-3 items-center">
-        <a class="fs-4 text-info hover-btn" target="_blank" href="https://www.instagram.com/_lucasapds_/"><i class="bi bi-instagram"></i></a>
-        <a class="fs-4 text-info hover-btn" target="_blank" href="https://www.linkedin.com/in/lucas-silva-3713891a2/"><i class="bi bi-linkedin"></i></a>
-        <a class="fs-4 text-info hover-btn" t arget="_blank" href="https://github.com/lucasapds1906"><i class="bi bi-github"></i></a>
+        <a class="fs-4 text-info hover-btn" target="_blank" href="https://www.instagram.com/_lucasapds_/"><i
+            class="bi bi-instagram"></i></a>
+        <a class="fs-4 text-info hover-btn" target="_blank" href="https://www.linkedin.com/in/lucas-silva-3713891a2/"><i
+            class="bi bi-linkedin"></i></a>
+        <a class="fs-4 text-info hover-btn" t arget="_blank" href="https://github.com/lucasapds1906"><i
+            class="bi bi-github"></i></a>
       </div>
       <a class="text-info text-decoration-none hover-btn" target="_blank" href="https://anhanguera.com">Universidade
         Pitágoras Unopar Anhanguera</a>

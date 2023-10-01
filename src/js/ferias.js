@@ -13,6 +13,7 @@ const aliquotaIrffTabela = document.getElementById("aliquota_irrf_tabela");
 // COLUNA PROVENTOS
 const proventosSalarioBrutoTabela = document.getElementById("proventos_salario-bruto_tabela");
 const proventosTotaisTabela = document.getElementById("proventos_totais_tabela");
+const proventosFeriasTabela = document.getElementById("proventos_ferias_tabela");
 
 // COLUNA DESCONTOS
 const descontosInssTabela = document.getElementById("descontos_inss_tabela");
@@ -23,6 +24,14 @@ const descontosTotaisTabela = document.getElementById("descontos_totais_tabela")
 const salarioLiquidoTabela = document.getElementById("salario-liquido_tabela");
 
 let descontoTotal = 0;
+
+function ferias(salarioBruto, descontos) {
+    const umTerço = salarioBruto / 3;
+    const proventosTotal = umTerço + salarioBruto;
+    const salarioFerias = proventosTotal - descontos;
+
+    return [umTerço, proventosTotal,  salarioFerias];
+}
 
 // FUNÇÃO INSS
 function inss(salarioBruto) {
@@ -93,19 +102,20 @@ function calcular() {
     divisor.classList.remove("d-none")
     descontoTotal = 0;
     const salarioBruto = parseFloat(document.getElementById("salario-bruto_input").value);
-    const dependentes = parseFloat(document.getElementById("dependetes_input").value);
 
     // CALCULOS
     const baseIrrf = inss(salarioBruto);
-    const salarioLiquido = irrf(baseIrrf[0], dependentes);
+    const salarioLiquido = irrf(baseIrrf[0]);
+    const salarioFerias = ferias(salarioBruto, descontoTotal);
 
     // TABELA
     descontosInssTabela.innerHTML = `${baseIrrf[1].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
     descontosIrrfTabela.innerHTML = `${salarioLiquido[1].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-    salarioLiquidoTabela.innerHTML = `${salarioLiquido[0].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-    proventosTotaisTabela.innerHTML = `${salarioBruto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    salarioLiquidoTabela.innerHTML = `${salarioFerias[2].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    proventosTotaisTabela.innerHTML = `${salarioFerias[1].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
     proventosSalarioBrutoTabela.innerHTML = `${salarioBruto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
     descontosTotaisTabela.innerHTML = `${descontoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    proventosFeriasTabela.innerHTML = `${salarioFerias[0].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
 }
 
 // LIMPAR CAMPOS e TABELA
