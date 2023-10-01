@@ -42,7 +42,7 @@
                             <a class="nav-link fs-5 fw-semibold" href="ferias.html">Calculadora de Férias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-5 fw-semibold" href="rescisao.html">Calculadora de Rescisão</a>
+                            <a class="nav-link fs-5 fw-semibold" href="decimoTerceiro.html">Calculadora de Décimo Terceiro</a>
                         </li>
                     </ul>
                 </div>
@@ -63,22 +63,33 @@
     <main class="container">
         <!-- PRINCIPAL -->
         <section>
-            <h2 class="text-uppercase fs-1 fw-bold ">Calculadora de Rescisão</h2>
-            <h3 class="text-center my-4 w-75 mx-auto">A rescisão de contrato CLT é a formalização do término de um vínculo empregatício regido por esse modelo de trabalho.</h3>
+            <h2 class="text-uppercase fs-1 fw-bold ">Calculadora de Décimo Terceiro</h2>
+            <h3 class="text-center my-4 w-75 mx-auto text-black-50">O décimo terceiro salário, gratificação natalina ou subsídio de Natal é um pagamento ao empregado ou funcionário instituído em alguns países.</h3>
 
             <!-- CALCULADORA -->
             <div class="row mx-0">
                 <div class="col-lg-6 col-12 border border-1 border-dark rounded-3 p-3 mx-auto">
-                    <h4 class="fs-4 text-center fw-semibold mb-1">Cálculo de férias</h4>
-                    <p class="mb-3 text-center text-black-50">(Valores equivalentes para 30 dias de férias)</p>
+                    <h4 class="fs-4 text-center fw-semibold mb-3">Cálculo de décimo terceiro</h4>
 
                     <!-- INPUTS -->
-                    <div class="input-group mb-2">
-                        <span class="fw-semibold input-group-text text-bg-dark" id="inputGroup-sizing-default">Salário
-                            Bruto</span>
-                        <input placeholder="R$ 0,00" type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" id="salario-bruto_input">
-                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="input-group mb-2">
+                            <span class="fw-semibold input-group-text text-bg-dark" id="inputGroup-sizing-default">Salário
+                              Bruto</span>
+                            <input placeholder="R$ 0,00" type="text" class="form-control" aria-label="Sizing example input"
+                              aria-describedby="inputGroup-sizing-default" id="salario-bruto_input">
+                          </div>
+                        </div>
+          
+                        <div class="col-12 col-md-6">
+                          <div class="input-group">
+                            <span class="input-group-text text-bg-dark fw-semibold"
+                              id="inputGroup-sizing-default">Meses Trabalhados</span>
+                            <input id="meses_input" placeholder="0" min='1' max="12" type="number" class="form-control"
+                              aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                          </div>
+                        </div>
 
                     <!-- BOTÕES -->
                     <div class="d-flex justify-content-center gap-3 mt-4">
@@ -110,12 +121,6 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>1/3 Férias</td>
-                                    <td></td>
-                                    <td id="proventos_ferias_tabela"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
                                     <td>INSS</td>
                                     <td id="aliquota_inss_tabela">-</td>
                                     <td></td>
@@ -128,13 +133,13 @@
                                     <td id="descontos_irrf-tabela">-</td>
                                 </tr>
                                 <tr>
-                                    <td>Totais</td>
+                                    <td>Consolidado</td>
                                     <td>-</td>
                                     <td id="proventos_totais_tabela">-</td>
                                     <td id="descontos_totais_tabela"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Valor salário líquido</td>
+                                    <td colspan="2">Décimo terceiro a receber</td>
                                     <td id="salario-liquido_tabela" colspan="2">-</td>
                                 </tr>
                             </tbody>
@@ -151,62 +156,17 @@
                 <!-- CARD 1 -->
                 <div class="col-lg-4 col-12 p-1">
                     <div class="card d-flex h-100 hover-card">
-                        <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-OptimusTech/">
-                            <img src="https://github.com/lucasapds1906/7DaysOfCode-OptimusTech/blob/main/img/readme/desktop.png?raw=true"
+                        <a target="_blank" href="https://alura-fokus-zeta.vercel.app/">
+                            <img src="https://github.com/lucasapds1906/Alura-Fokus/raw/main/imagensReadme/layout-desktop.png"
                                 class="card-img-top" alt="">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">7DaysOfCode - OptimusTech</h5>
-                            <p class="card-text">Projeto desenvolvido em HTML e CSS, no qual foi construída a
-                                OptimusTech, uma página de
-                                vagas de TI fictícia.</p>
+                            <h5 class="card-title fw-bold">Alura Fokus</h5>
+                            <p class="card-text">Este é o projeto do curso de "JavaScript: manipulando elementos no DOM", que faz parte da formação "Desenvolva aplicações Web com JavaScript".</p>
                         </div>
                         <div class="card-footer border-0 bg-white">
-                            <a href="https://github.com/lucasapds1906/7DaysOfCode-OptimusTech"
+                            <a href="https://github.com/lucasapds1906/Alura-Fokus"
                                 class=" btn btn-info fw-semibold" target="_blank">Explorar Projeto</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 2 -->
-                <div class="col-lg-4 col-12 p-1">
-                    <div class="card d-flex h-100 hover-card">
-                        <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-Aluramed/">
-                            <img src="src/img/desktop.png" class="card-img-top" alt="">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">7DaysOfCode - Aluramed</h5>
-                            <p class="card-text">Neste projeto do "7DaysOfCode: Responsividade" da Alura, desenvolvemos
-                                uma página
-                                fictícia para a clínica médica AluraMed. O principal objetivo deste desafio foi criar um
-                                projeto com foco
-                                na metodologia Mobile First, garantindo que a página seja responsiva e se adapte bem à
-                                maioria das telas.
-                            </p>
-                        </div>
-                        <div class="card-footer border-0 bg-white">
-                            <a href="https://github.com/lucasapds1906/7DaysOfCode-Aluramed"
-                                class="btn btn-info fw-semibold" target="_blank">Explorar Projeto</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="col-lg-4 col-12 p-1">
-                    <div class="card d-flex h-100 hover-card">
-                        <a target="_blank" href="https://lucasapds1906.github.io/7DaysOfCode-Netflix/">
-                            <img src="https://github.com/lucasapds1906/7DaysOfCode-Netflix/blob/main/imagensReadme/layout-desktop.png?raw=true"
-                                class="card-img-top" alt="">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">7DaysOfCode - Netflix</h5>
-                            <p class="card-text">Projeto desenvolvido em HTML e CSS, no qual foi construída uma réplica
-                                da estrutura
-                                visual do site de streaming Netflix.</p>
-                        </div>
-                        <div class="card-footer border-0 bg-white">
-                            <a href="https://github.com/lucasapds1906/7DaysOfCode-Netflix"
-                                class="btn btn-info fw-semibold " target="_blank">Explorar Projeto</a>
                         </div>
                     </div>
                 </div>
@@ -232,7 +192,7 @@
         </div>
     </footer>
 
-    <script src="src/js/ferias.js"></script>
+    <script src="src/js/decimoTerceiro.js"></script>
 </body>
 
 </html>
