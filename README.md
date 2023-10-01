@@ -16,9 +16,9 @@ Durante a realização deste projeto, foram colocados em prática os seguintes c
 
 ## Capturas de Tela
 
-![Captura de Desktop]("https://github.com/lucasapds1906/Pitagoras-Calc/blob/main/src/img/readme/desktop.png")
-![Captura de Mobile]("https://github.com/lucasapds1906/Pitagoras-Calc/blob/main/src/img/readme/mobile.png")
-![Captura de Tablet]("https://github.com/lucasapds1906/Pitagoras-Calc/blob/main/src/img/readme/tablet.png")
+![Captura de Desktop](https://github.com/lucasapds1906/Pitagoras-Calc/blob/main/src/img/readme/desktop.png?raw=true)  
+![Captura de Mobile](https://github.com/lucasapds1906/Pitagoras-Calc/blob/main/src/img/readme/mobile.png?raw=true)  
+![Captura de Tablet](https://github.com/lucasapds1906/Pitagoras-Calc/blob/main/src/img/readme/tablet.png?raw=true)  
 
 ## Autor
 
